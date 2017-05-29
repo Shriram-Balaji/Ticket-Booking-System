@@ -1,0 +1,30 @@
+{
+	"screen1": {
+    "rows":  4,
+    "columns": 15,
+		"availability": {
+				"rowA": {
+					"19": "booked",
+					"20": "booked",
+					"21": "booked"
+				},
+
+        "rowB": {
+          "19": "booked",
+          "20": "booked",
+          "21": "booked"
+        },
+        "rowC": {
+          "19": "booked",
+          "20": "booked",
+          "21": "booked"
+        },
+        "rowD": {
+          "19": "booked",
+          "20": "booked",
+          "21": "booked"
+        }
+			}
+
+	}
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+  <script src="../components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+  <script src="../components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.min.css">
+
+
+  <script src="../components/angular/angular.min.js"></script>
+  <script src="./app.js" charset="utf-8"></script>
+  <script src="./scripts/factory/movies.factory.js"></script>
+  <script src="./scripts/controllers/ticket.controller.js" charset="utf-8"></script>
+
+
+
+  <title>Ticket Machine</title>
+</head>
+
+<body ng-app="TicketMachine" ng-controller="TicketController">
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-8">
+        <table class="table">
+          <tbody>
+            <tr align="center">
+              <th>120 Rs. ELITE</th>
+            </tr>
+            <tr ng-repeat="row in rowNames" id="row{{rowNames[$index]}}">
+              <td>
+                <div id="col{{$index}}" class="seat seat-available" ng-repeat="n in seatsInEachColumn" ng-click="selected=!selected"  ng-class="{'seat-selected':selected}"> </div>
+                    </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "broadsoft-movie",
+  "version": "1.0.0",
+  "description": "A sample movie ticket reservation system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shriram Balaji",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.8.0",
+    "cors": "^2.8.3",
+    "express": "^4.15.3"
+  }
+}
