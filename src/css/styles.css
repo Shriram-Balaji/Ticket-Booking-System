@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*@import url('//fonts.googleapis.com/css?family=Questrial');*/
+
+@font-face {
+src: url('../fonts/Questrial-Regular.ttf') format('truetype');
+font-family: 'Questrial';
+
+}
 body {
   margin: 0px;
   background-color: #252432 !important;
   color: #fff !important;
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Questrial',sans-serif !important;
 }
 .navbar {
   background-color: #282F39;
@@ -19,15 +25,30 @@ ul,li {
 a , a:hover, a:active{
   text-decoration: none;
 }
+
+button[disabled] {
+    cursor: default;
+    background-color: buttonface !important;
+    color: graytext;
+}
+
 .margin-left-30 {
   margin-left: 30px;
+}
+
+.margin-bottom-30 {
+  margin-bottom: 30px;
 }
 .table {
   margin: 0 auto;
   float: none;
 }
 
-
+.header {
+  margin:25px 0px 50px;
+  text-align: center;
+  letter-spacing: 1px;
+}
 .row-centered {
     text-align:center;
 }
@@ -43,9 +64,10 @@ td , th{
   border:  none !important;
 }
 
-#booking {
-  margin: 100px 0px 25px;
+.no-float{
+  float: none !important;
 }
+
 .row-name {
   text-align: center;
   padding: 25px 20px !important;
@@ -64,8 +86,8 @@ td , th{
 }
 
 .seat-selected {
-  background-color: #3365FF !important;
-  border: 1px solid #3365FF !important;
+  background-color: #3983fd !important;
+  border: 1px solid #3983fd !important;
   color: #fff;
 }
 
@@ -97,4 +119,27 @@ td , th{
 .disable-selection {
   pointer-events: none;
   color: rgba(0, 0, 0, 0);
+}
+
+.chosen {
+    background: #07c98a;
+    padding: 5px;
+    color: #FFF !important;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-left: 7px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+#bookNowBtn {
+    padding: 10px 25px;
+    background-color: #3983fd;
+    border-radius: 50px;
+    border: none;
+}
+
+#bookNowBtn:hover {
+background-color: #3983fd;
 }

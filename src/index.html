@@ -12,6 +12,7 @@
 
 
   <script src="../components/angular/angular.min.js"></script>
+  <script src="../components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="./app.js" charset="utf-8"></script>
   <script src="./scripts/factory/movies.factory.js"></script>
   <script src="./scripts/controllers/ticket.controller.js" charset="utf-8"></script>
@@ -21,60 +22,87 @@
   <title>Ticket Machine</title>
 </head>
 
-<body ng-app="TicketMachine" ng-controller="TicketController">
-  <div class="container">
-    <div class="row ">
-      <div class="col-md-10 col-center-block">
-        <div id="booking">
-          <table class="table" cellspacing="0" cellpadding="0" style="width:0px;">
-            <tbody>
-              <tr ng-repeat="row in rowNames" id="row-{{rowNames[$index]}}">
-                <td class="row-name">
-                  <div>
-                    {{row}}
-                  </div>
-                </td>
-                <td>
-                  <div id="column-{{$index}}" class="seat seat-available" ng-repeat="col in seatsInEachColumn" ng-click="selected=!selected" ng-class="{'seat-selected':selected ,  'seat-unavailable' : takenSeats['{{row}}{{col}}']}">
-                    <a ng-class="{'disable-selection' : takenSeats['{{row}}{{col}}']}" class="seat-number">{{$index}}</a>
-                  </div>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-
-        </div>
+<body ng-app="TicketMachine" ng-controller="TicketController" ng-init="init()" ng-cloak>
+  <div class="container-fluid">
+    <div class="row header">
+      <div class="col-md-12">
+        <h1> <img src="img/popcorn.svg" alt="" style="
+    width: 50px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+">
+            <strong>Ticket Machine</strong></h1>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-md-10">
-        <div class="col-md-1 margin-left-30">
+    <div class="row">
+      <div class="col-md-2" id="legends">
+        <div class="col-md-1 no-float margin-left-30">
           <a class="seat seat-available" style="width: 10px;">
-            </a>
+        </a>
           <p style="padding: 6px 40px;">Available</p>
         </div>
 
-        <div class="col-md-1 margin-left-30">
+        <div class="col-md-1 no-float margin-left-30">
           <a class="seat seat-selected" style="width: 10px;">
-        </a>
+    </a>
           <p style="padding: 6px 40px;">Selected</p>
         </div>
 
 
-        <div class="col-md-1 margin-left-30">
+        <div class="col-md-1 no-float margin-left-30">
           <a class="seat seat-unavailable" style="width: 10px;">
-        </a>
+    </a>
           <p style="padding: 6px 40px;">Taken</p>
         </div>
       </div>
+
+
+      <div class="col-md-10 col-center-block" id="booking">
+        <table class="table" cellspacing="0" cellpadding="0" style="width:0px;">
+          <tbody>
+            <tr ng-repeat="row in rowNames" id="row-{{rowNames[$index]}}">
+              <td class="row-name">
+                <div>
+                  {{row}}
+                </div>
+              </td>
+              <td>
+                <div id="column-{{$index}}" class="seat seat-available" ng-repeat="col in seatsInEachColumn" ng-click="selected=!selected; selectSeat(selected,row,col)" ng-class="{'seat-selected':selected ,  'seat-unavailable' : takenSeats['{{row}}{{col}}']}">
+                  <a ng-class="{'disable-selection' : takenSeats['{{row}}{{col}}']}" class="seat-number">{{col}}</a>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="row margin-bottom-30" id="chosen-seats" ng-hide="nothingSelected">
+        <div class="col-md-12 col-center-block text-center">
+          <span>  Selected Seats : </span>
+          <span class="chosen" ng-repeat="(key,value) in selectedSeats">
+          {{key}}
+          </span>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-3 col-center-block text-center">
+          <button type="button" id="bookNowBtn" name="button" ng-click="bookTickets()" ng-disabled="nothingSelected">BOOK NOW</button>
+          <p style="margin-top: 50px;" ng-show="bookingCompleted"> The seats <span ng-repeat="(key,value) in selectedSeats"> {{key}} </span> have been booked.</p>
+
+        </div>
       </div>
 
 
 
-      </div>
 
     </div>
+
+  </div>
 </body>
 
 </html>

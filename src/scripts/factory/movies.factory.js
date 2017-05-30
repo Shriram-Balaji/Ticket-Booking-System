@@ -10,6 +10,13 @@ const movies = angular.module('TicketMachine').factory('MoviesFactory', function
        console.log("Something went wrong");
     });
 };
+
+  tickets.bookSeats = function(ticketData){
+    return $http.post('/booking',ticketData).then(function(data){
+      console.log(data);
+    });
+  };
+
   return tickets;
 
 })

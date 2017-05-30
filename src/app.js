@@ -1,3 +1,2 @@
 'use strict'
-const app = angular.module('TicketMachine',[]);
-console.log("Hello");
+const app = angular.module('TicketMachine',['ui.router']);
