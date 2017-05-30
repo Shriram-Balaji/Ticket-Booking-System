@@ -24,20 +24,53 @@
 <body ng-app="TicketMachine" ng-controller="TicketController">
   <div class="container">
     <div class="row ">
-      <div class="col-md-8">
-        <table class="table">
-          <tbody>
-            <tr align="center">
-              <th>120 Rs. ELITE</th>
-            </tr>
-            <tr ng-repeat="row in rowNames" id="row{{rowNames[$index]}}">
-              <td>
-                <div id="col{{$index}}" class="seat seat-available" ng-repeat="n in seatsInEachColumn" ng-click="selected=!selected"  ng-class="{'seat-selected':selected}"> </div>
-                    </td>
-            </tr>
+      <div class="col-md-10 col-center-block">
+        <div id="booking">
+          <table class="table" cellspacing="0" cellpadding="0" style="width:0px;">
+            <tbody>
+              <tr ng-repeat="row in rowNames" id="row-{{rowNames[$index]}}">
+                <td class="row-name">
+                  <div>
+                    {{row}}
+                  </div>
+                </td>
+                <td>
+                  <div id="column-{{$index}}" class="seat seat-available" ng-repeat="col in seatsInEachColumn" ng-click="selected=!selected" ng-class="{'seat-selected':selected ,  'seat-unavailable' : takenSeats['{{row}}{{col}}']}">
+                    <a ng-class="{'disable-selection' : takenSeats['{{row}}{{col}}']}" class="seat-number">{{$index}}</a>
+                  </div>
+                </td>
+              </tr>
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+        <div class="col-md-1 margin-left-30">
+          <a class="seat seat-available" style="width: 10px;">
+            </a>
+          <p style="padding: 6px 40px;">Available</p>
+        </div>
+
+        <div class="col-md-1 margin-left-30">
+          <a class="seat seat-selected" style="width: 10px;">
+        </a>
+          <p style="padding: 6px 40px;">Selected</p>
+        </div>
+
+
+        <div class="col-md-1 margin-left-30">
+          <a class="seat seat-unavailable" style="width: 10px;">
+        </a>
+          <p style="padding: 6px 40px;">Taken</p>
+        </div>
+      </div>
+      </div>
+
+
 
       </div>
 
