@@ -14,9 +14,6 @@ const ticketController = app.controller('TicketController', function($scope, Mov
     $scope.ticketDetails = MoviesFactory.getTicketAvailability();
     $scope.ticketDetails.then(function(response) {
       $scope.takenSeats = response.screen1.availability.taken;
-      console.log($scope.takenSeats);
-
-
       //columnNumbering
       $scope.seatsInEachColumn = [];
       for (let i = 1; i <= $scope.totalColumns; i++) {
@@ -29,6 +26,18 @@ const ticketController = app.controller('TicketController', function($scope, Mov
         $scope.rowNames.push(String.fromCharCode(i));
     });
   }
+
+
+  //ticketCount
+   $scope.getTicketCount = function(selectedSeats){
+     let len = Object.keys(selectedSeats).length;
+     if(len<=1){
+       return len+" seat";
+     }
+     else
+        return len+" seats";
+  }
+
 
   //When Seat Selected
   $scope.selectSeat = function(selected, row, col) {
@@ -69,7 +78,6 @@ const ticketController = app.controller('TicketController', function($scope, Mov
   //Book the selected seats
   $scope.bookTickets = function() {
     let bookingStatus = MoviesFactory.bookSeats($scope.selectedSeats).then(function(response) {
-      console.log(response);
       showSnackbar();
       $scope.bookingCompleted = true;
     })

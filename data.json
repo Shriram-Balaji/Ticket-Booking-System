@@ -1,16 +1,1 @@
-{
-  "screen1": {
-    "rows": 4,
-    "columns": 15,
-    "availability": {
-      "taken": {
-        "B6": true,
-        "B7": true,
-        "A3": true,
-        "A4": true,
-        "B15": true,
-        "D7": true
-      }
-    }
-  }
-}
+{"screen1":{"rows":4,"columns":15,"availability":{"taken":{"B6":true,"B7":true,"A3":true,"A4":true,"B15":true,"D3":true}}}}

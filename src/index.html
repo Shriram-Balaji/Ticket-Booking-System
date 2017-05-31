@@ -55,6 +55,8 @@
       <div class="col-md-10 col-center-block" id="booking">
         <table class="table" cellspacing="0" cellpadding="0" style="width:0px;">
           <tbody>
+            <tr>
+            </tr>
             <tr ng-repeat="row in rowNames" id="row-{{rowNames[$index]}}">
               <td class="row-name">
                 <div>
@@ -76,7 +78,7 @@
       <!-- Printing Selected Seats-->
       <div class="row margin-bottom-30" id="chosen-seats" ng-hide="nothingSelected">
         <div class="col-md-12 col-center-block text-center">
-          <span>  Selected Seats : </span>
+          <span>  Selected Seats&nbsp;(&nbsp;{{getTicketCount(selectedSeats)}}&nbsp;) : </span>
           <span class="chosen" ng-repeat="(key,value) in selectedSeats">
           {{key}}
           </span>
