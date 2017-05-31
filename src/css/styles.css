@@ -1,20 +1,17 @@
-/*@import url('//fonts.googleapis.com/css?family=Questrial');*/
-
 @font-face {
 src: url('../fonts/Questrial-Regular.ttf') format('truetype');
 font-family: 'Questrial';
-
 }
+
+/*--Global Styles --*/
 body {
   margin: 0px;
   background-color: #252432 !important;
   color: #fff !important;
   font-family: 'Questrial',sans-serif !important;
+  overflow-x: hidden;
 }
-.navbar {
-  background-color: #282F39;
-  padding: 10px;
-}
+
 
 ul,li {
   margin: 0;
@@ -32,6 +29,11 @@ button[disabled] {
     color: graytext;
 }
 
+
+.no-float{
+  float: none !important;
+}
+
 .margin-left-30 {
   margin-left: 30px;
 }
@@ -39,16 +41,8 @@ button[disabled] {
 .margin-bottom-30 {
   margin-bottom: 30px;
 }
-.table {
-  margin: 0 auto;
-  float: none;
-}
 
-.header {
-  margin:25px 0px 50px;
-  text-align: center;
-  letter-spacing: 1px;
-}
+
 .row-centered {
     text-align:center;
 }
@@ -60,12 +54,29 @@ button[disabled] {
 }
 
 
-td , th{
-  border:  none !important;
+
+/*--Header--*/
+.header {
+  margin:25px 0px 50px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
-.no-float{
-  float: none !important;
+.header-icon {
+  width: 50px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+/*--Seating Arrangement Table Styles--*/
+.table {
+  margin: 0 auto;
+  float: none;
+}
+
+
+td , th{
+  border:  none !important;
 }
 
 .row-name {
@@ -73,6 +84,8 @@ td , th{
   padding: 25px 20px !important;
   width: 10px;
 }
+
+/*--Seat Styles--*/
 .seat {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -133,13 +146,62 @@ td , th{
     color: white;
 }
 
+/*--Booking Button--*/
 #bookNowBtn {
     padding: 10px 25px;
     background-color: #3983fd;
     border-radius: 50px;
     border: none;
+    margin-bottom: 30px;
 }
 
 #bookNowBtn:hover {
 background-color: #3983fd;
+}
+
+
+
+/* Snackbar notification*/
+#notification {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: rgb(70, 70, 96);
+  color: #fff;
+  text-align: center;
+  border-radius: 100px;
+  padding: 15px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 25px;
+  margin-bottom: 0px;
+}
+
+/* Show the snackbar on click with animation */
+#notification.show {
+    visibility: visible; /* Show the snackbar */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }
